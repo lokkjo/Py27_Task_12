@@ -54,13 +54,11 @@ class VkUser:
         return f'VkUser_{self.user_id}'
 
     def __and__(self, other):
-        self_set = set(self.get_friends_list())
-        other_set = set(other.get_friends_list())
-        intersection = self_set & other_set
-        int_list = []
-        for item in intersection:
-            item = VkUser(item)
-            int_list.append(item)
+        intersection = (set(self.get_friends_list()) &
+                       set(other.get_friends_list()))
+        int_list = sorted(list(intersection))
+        for item in int_list:
+            int_list[int_list.index(item)] = VkUser(item)
         return int_list
 
     def get_mutual_friends(self, target_id):
