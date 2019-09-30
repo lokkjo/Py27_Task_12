@@ -3,11 +3,11 @@ import sys
 import time
 import json
 
+
 class VkUser:
     def __init__(self, user_id=None):
         self.access_token = 'token_here'
         self.user_id = user_id
-
 
     def get_user_id(self):
         if self.user_id is None:
@@ -30,10 +30,8 @@ class VkUser:
         user_id = (user_dict['response'][0]['id'])
         return user_id
 
-
     def __str__(self):
         return f'https://vk.com/id{self.get_user_id()}'
-
 
     def get_friends_list(self):
         time.sleep(0.32)
@@ -64,7 +62,6 @@ class VkUser:
             item = VkUser(item)
             int_list.append(item)
         return int_list
-
 
     def get_params(self):
         return {
