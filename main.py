@@ -63,12 +63,6 @@ class VkUser:
             int_list.append(item)
         return int_list
 
-    def get_params(self):
-        return {
-            'access_token': self.access_token,
-            'v': 5.101
-        }
-
     def get_mutual_friends(self, target_id):
         time.sleep(0.32)
         mf_params = {
